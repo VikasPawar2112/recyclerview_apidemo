@@ -7,75 +7,75 @@ data class UserData(
 
     @SerializedName("login")
     @Expose
-    private val login: String? = null,
+    val login: String? = null,
 
     @SerializedName("id")
     @Expose
-    private val id: Int? = null,
+    val id: Int? = null,
 
     @SerializedName("node_id")
     @Expose
-    private val nodeId: String? = null,
+    val nodeId: String? = null,
 
     @SerializedName("avatar_url")
     @Expose
-    private val avatarUrl: String? = null,
+    val avatarUrl: String? = null,
 
     @SerializedName("gravatar_id")
     @Expose
-    private val gravatarId: String? = null,
+    val gravatarId: String? = null,
 
     @SerializedName("url")
     @Expose
-    private val url: String? = null,
+    val url: String? = null,
 
     @SerializedName("html_url")
     @Expose
-    private val htmlUrl: String? = null,
+    val htmlUrl: String? = null,
 
     @SerializedName("followers_url")
     @Expose
-    private val followersUrl: String? = null,
+    val followersUrl: String? = null,
 
     @SerializedName("following_url")
     @Expose
-    private val followingUrl: String? = null,
+    val followingUrl: String? = null,
 
     @SerializedName("gists_url")
     @Expose
-    private val gistsUrl: String? = null,
+    val gistsUrl: String? = null,
 
     @SerializedName("starred_url")
     @Expose
-    private val starredUrl: String? = null,
+    val starredUrl: String? = null,
 
     @SerializedName("subscriptions_url")
     @Expose
-    private val subscriptionsUrl: String? = null,
+    val subscriptionsUrl: String? = null,
 
     @SerializedName("organizations_url")
     @Expose
-    private val organizationsUrl: String? = null,
+    val organizationsUrl: String? = null,
 
     @SerializedName("repos_url")
     @Expose
-    private val reposUrl: String? = null,
+    val reposUrl: String? = null,
 
     @SerializedName("events_url")
     @Expose
-    private val eventsUrl: String? = null,
+    val eventsUrl: String? = null,
 
     @SerializedName("received_events_url")
     @Expose
-    private val receivedEventsUrl: String? = null,
+    val receivedEventsUrl: String? = null,
 
     @SerializedName("type")
     @Expose
-    private val type: String? = null,
+    val type: String? = null,
 
     @SerializedName("site_admin")
     @Expose
-    private val siteAdmin: Boolean? = null
+    val siteAdmin: Boolean? = null
 
 )
 

@@ -13,5 +13,4 @@ class UserDataActivity : AppCompatActivity() {
         setContentView(R.layout.activity_user_data)
         setSupportActionBar(toolbar)
     }
-
 }
