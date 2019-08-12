@@ -6,7 +6,7 @@
         android:layout_margin="10dp"
         android:orientation="vertical">
 
-    <ImageView
+    <android.support.v7.widget.AppCompatImageView
             android:id="@+id/idUserImage"
             android:layout_width="match_parent"
             android:layout_height="300dp"/>
@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/idUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
                 android:textSize="20sp"
                 android:text="Vikas"/>
 
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/idUserType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

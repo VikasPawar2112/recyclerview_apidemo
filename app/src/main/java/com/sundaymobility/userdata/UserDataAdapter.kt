@@ -12,7 +12,8 @@ import com.bumptech.glide.request.RequestOptions
 import com.sundaymobility.R
 import com.sundaymobility.network.responsepojo.UserData
 
-class UserDataAdapter(val context: Context) : RecyclerView.Adapter<UserDataAdapter.UserDataViewHolder>() {
+class UserDataAdapter(val context: Context, userDataList: MutableList<UserData>) :
+    RecyclerView.Adapter<UserDataAdapter.UserDataViewHolder>() {
 
     var userDataList: List<UserData> = listOf()
 
@@ -23,16 +24,17 @@ class UserDataAdapter(val context: Context) : RecyclerView.Adapter<UserDataAdapt
     }
 
     override fun getItemCount(): Int {
-        return userDataList.size
+        // return userDataList.size
+        return 10
     }
 
     override fun onBindViewHolder(holder: UserDataViewHolder, position: Int) {
 
-        Glide.with(context).load(userDataList.get(position).avatarUrl)
+        Glide.with(context).load(R.mipmap.ic_launcher/*userDataList.get(position).avatarUrl*/)
             .apply(RequestOptions().centerCrop())
             .into(holder.imgUserImage)
-        holder.tvUserName.text = userDataList.get(position).login
-        holder.tvUserType.text = userDataList.get(position).type
+        holder.tvUserName.text = "Vikas"/*userDataList.get(position).login*/
+        holder.tvUserType.text = "Pawar"/*userDataList.get(position).type*/
     }
 
     fun setuserDataListItems(userDataList: List<UserData>) {

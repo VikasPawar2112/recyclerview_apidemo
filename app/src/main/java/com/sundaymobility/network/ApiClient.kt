@@ -10,9 +10,11 @@ public class ApiClient {
     public fun getApiClient(): Retrofit? {
         if (retrofit == null) {
             retrofit = Retrofit.Builder()
-                .baseUrl(Constants.Constants.BASE_URL)
+                .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create()).build()
         }
         return retrofit
     }
+
+
 }
