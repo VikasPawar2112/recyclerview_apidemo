@@ -10,7 +10,6 @@ import kotlinx.android.synthetic.main.activity_user_data.*
 class UserDataActivity : AppCompatActivity(), UserDataView {
 
     private var userdataAdapter: UserDataAdapter? = null
-    private var userDataList: MutableList<UserData> = ArrayList()
     var presenters: UserDataPresenter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +17,7 @@ class UserDataActivity : AppCompatActivity(), UserDataView {
         presenters = UserDataPresenterImpl(this)
         setSupportActionBar(toolbar)
         recyclerview.layoutManager = LinearLayoutManager(this)
-        userdataAdapter = UserDataAdapter(this, userDataList)
+        userdataAdapter = UserDataAdapter(this, mutableListOf())
         recyclerview.adapter = userdataAdapter
         presenters?.getUserData()
     }
@@ -42,4 +41,10 @@ class UserDataActivity : AppCompatActivity(), UserDataView {
 
     override fun noInternet() {
     }
+
+    override fun loadUserData(userDataList: MutableList<UserData>) {
+        userdataAdapter?.clear()
+        userdataAdapter?.addAll(userDataList)
+    }
+
 }
