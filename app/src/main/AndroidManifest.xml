@@ -24,6 +24,8 @@
         <activity android:name=".userdata.UserDataActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
 
+        <activity android:name=".FullScreenView"
+                  android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>
 
