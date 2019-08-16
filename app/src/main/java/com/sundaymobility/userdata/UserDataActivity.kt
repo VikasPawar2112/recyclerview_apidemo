@@ -1,6 +1,7 @@
 package com.sundaymobility.userdata
 
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.sundaymobility.R
@@ -21,6 +22,12 @@ class UserDataActivity : AppCompatActivity(), UserDataView {
         userdataAdapter = UserDataAdapter(this, userDataList)
         recyclerview.adapter = userdataAdapter
 //        presenters?.getUserData()
+
+        addAction.setOnClickListener { view ->
+            Snackbar.make(view, "Click on FAB to add more items. ", Snackbar.LENGTH_LONG)
+                .setAction("OK", null)
+                .show()
+        }
     }
 
     override fun onDestroy() {

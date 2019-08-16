@@ -35,6 +35,7 @@
             app:backgroundTint="@color/colorPrimary"
             android:layout_margin="@dimen/fab_margin"
             android:tint="@color/fabAdd"
+            android:id="@+id/addAction"
             android:src="@android:drawable/ic_input_add"
             android:layout_height="wrap_content"/>
 
