@@ -24,12 +24,12 @@ class UserDataAdapter(val context: Context, private var userDataList: MutableLis
     override fun getItemCount() = userDataList.size
 
     override fun onBindViewHolder(holder: UserDataViewHolder, position: Int) {
-          val userDataBean = userDataList[position]
-        Glide.with(context).load(R.mipmap.ic_launcher/*userDataList.get(position).avatarUrl*/)
+        val userDataBean = userDataList[position]
+        Glide.with(context).load(userDataList.get(position).avatarUrl)
             .apply(RequestOptions().centerCrop())
             .into(holder.imgUserImage)
-            holder.tvUserName.text = userDataBean.login
-            holder.tvUserType.text = userDataBean.followersUrl
+        holder.tvUserName.text = userDataBean.login
+        holder.tvUserType.text = userDataBean.type
     }
 
     class UserDataViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {

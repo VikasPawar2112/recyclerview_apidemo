@@ -20,8 +20,7 @@ class UserDataActivity : AppCompatActivity(), UserDataView {
         recyclerview.layoutManager = LinearLayoutManager(this)
         userdataAdapter = UserDataAdapter(this, mutableListOf())
         recyclerview.adapter = userdataAdapter
-//        presenters?.getUserData()
-
+        presenters?.getUserData()
         addAction.setOnClickListener { view ->
             Snackbar.make(view, R.string.snackbar_message, Snackbar.LENGTH_LONG)
                 .setAction(R.string.snackbar_action, null)
@@ -53,5 +52,4 @@ class UserDataActivity : AppCompatActivity(), UserDataView {
         userdataAdapter?.clear()
         userdataAdapter?.addAll(userDataList)
     }
-
 }
