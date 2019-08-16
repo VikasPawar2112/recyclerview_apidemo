@@ -24,8 +24,8 @@ class UserDataActivity : AppCompatActivity(), UserDataView {
 //        presenters?.getUserData()
 
         addAction.setOnClickListener { view ->
-            Snackbar.make(view, "Click on FAB to add more items. ", Snackbar.LENGTH_LONG)
-                .setAction("OK", null)
+            Snackbar.make(view, R.string.snackbar_message, Snackbar.LENGTH_LONG)
+                .setAction(R.string.snackbar_action, null)
                 .show()
         }
     }
