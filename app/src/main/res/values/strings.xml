@@ -4,5 +4,6 @@
     <string name="splash_screen">Splash Screen</string>
     <string name="snackbar_message">Click on FAB to add more items.</string>
     <string name="snackbar_action">OK</string>
+    <string name="toolbar_name_home">User Data</string>
 
 </resources>
