@@ -39,4 +39,13 @@
             android:src="@android:drawable/ic_input_add"
             android:layout_height="wrap_content"/>
 
+    <ProgressBar
+            android:id="@+id/progressbarShowLoading"
+            style="?android:attr/progressBarStyleLarge"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content">
+    </ProgressBar>
+
 </RelativeLayout>
