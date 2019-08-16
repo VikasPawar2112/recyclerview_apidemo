@@ -1,10 +1,11 @@
 package com.sundaymobility.network.apis
 
 import com.sundaymobility.network.responsepojo.UserData
-import io.reactivex.Observable
+import com.sundaymobility.utility.Constants
 import retrofit2.http.GET
+import rx.Observable
 
 interface APIServiceInterface {
-    @GET("users")
-    fun getAllUserData(): Observable<List<UserData>>
+    @GET(Constants.BASE_URL + "users")
+    fun getAllUserData(): Observable<UserData>
 }

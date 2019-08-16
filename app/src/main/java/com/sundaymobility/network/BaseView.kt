@@ -1,6 +1,8 @@
 package com.sundaymobility.network
 
-interface BaseView {
+import com.hannesdorfmann.mosby.mvp.MvpView
+
+interface BaseView : MvpView {
     fun showLoading()
 
     fun hideLoading()
