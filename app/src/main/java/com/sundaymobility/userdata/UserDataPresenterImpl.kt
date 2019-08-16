@@ -12,31 +12,33 @@ class UserDataPresenterImpl(var view: UserDataView?) :
 
     override fun getUserData() {
         if (view != null) {
-//            view?.showLoading()
+            view?.showLoading()
             interactor.getUserData(this)
         }
     }
 
     override fun onSuccessGetUserData(userDataList: MutableList<UserData>) {
         if (view != null) {
-//            view?.hideLoading()
+            view?.hideLoading()
             view?.loadUserData(userDataList)
         }
     }
 
-
-    override fun successApi() {
-    }
-
     override fun failApi(message: String) {
+        if (view != null) {
+            view?.hideLoading()
+            view?.fail(message)
+        }
     }
 
     override fun noInternet() {
+        if (view != null) {
+            view?.hideLoading()
+            view?.noInternet()
+        }
     }
 
     override fun onDestroyClass() {
         view = null
     }
-
-
 }

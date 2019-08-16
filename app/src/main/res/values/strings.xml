@@ -5,5 +5,6 @@
     <string name="snackbar_message">Click on FAB to add more items.</string>
     <string name="snackbar_action">OK</string>
     <string name="toolbar_name_home">User Data</string>
+    <string name="no_internet_connection">No Internet connection</string>
 
 </resources>

@@ -7,8 +7,6 @@ interface BaseView : MvpView {
 
     fun hideLoading()
 
-    fun success(message: String)
-
     fun fail(message: String)
 
     fun noInternet()

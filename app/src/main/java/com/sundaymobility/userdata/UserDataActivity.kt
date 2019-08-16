@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
+import android.widget.Toast
 import com.sundaymobility.R
 import com.sundaymobility.network.responsepojo.UserData
 import kotlinx.android.synthetic.main.activity_user_data.*
@@ -15,8 +17,9 @@ class UserDataActivity : AppCompatActivity(), UserDataView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_data)
-        presenters = UserDataPresenterImpl(this)
         setSupportActionBar(toolbar)
+        supportActionBar!!.setTitle(R.string.toolbar_name_home)
+        presenters = UserDataPresenterImpl(this)
         recyclerview.layoutManager = LinearLayoutManager(this)
         userdataAdapter = UserDataAdapter(this, mutableListOf())
         recyclerview.adapter = userdataAdapter
@@ -34,18 +37,19 @@ class UserDataActivity : AppCompatActivity(), UserDataView {
     }
 
     override fun showLoading() {
+        progressbarShowLoading.visibility = View.VISIBLE
     }
 
     override fun hideLoading() {
-    }
-
-    override fun success(message: String) {
+        progressbarShowLoading.visibility = View.GONE
     }
 
     override fun fail(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
     override fun noInternet() {
+        Toast.makeText(this, R.string.no_internet_connection, Toast.LENGTH_LONG).show()
     }
 
     override fun loadUserData(userDataList: MutableList<UserData>) {
