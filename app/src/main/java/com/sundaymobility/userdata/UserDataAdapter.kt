@@ -12,10 +12,8 @@ import com.bumptech.glide.request.RequestOptions
 import com.sundaymobility.R
 import com.sundaymobility.network.responsepojo.UserData
 
-class UserDataAdapter(val context: Context, userDataList: MutableList<UserData>) :
+class UserDataAdapter(val context: Context, private var userDataList: MutableList<UserData>) :
     RecyclerView.Adapter<UserDataAdapter.UserDataViewHolder>() {
-
-    var userDataList: List<UserData> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserDataViewHolder {
 
@@ -23,28 +21,30 @@ class UserDataAdapter(val context: Context, userDataList: MutableList<UserData>)
         return UserDataViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        // return userDataList.size
-        return 10
-    }
+    override fun getItemCount() = userDataList.size
 
     override fun onBindViewHolder(holder: UserDataViewHolder, position: Int) {
-
+          val userDataBean = userDataList[position]
         Glide.with(context).load(R.mipmap.ic_launcher/*userDataList.get(position).avatarUrl*/)
             .apply(RequestOptions().centerCrop())
             .into(holder.imgUserImage)
-        holder.tvUserName.text = "Vikas"/*userDataList.get(position).login*/
-        holder.tvUserType.text = "Pawar"/*userDataList.get(position).type*/
-    }
-
-    fun setuserDataListItems(userDataList: List<UserData>) {
-        this.userDataList = userDataList;
-        notifyDataSetChanged()
+            holder.tvUserName.text = userDataBean.login
+            holder.tvUserType.text = userDataBean.followersUrl
     }
 
     class UserDataViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
         val imgUserImage: ImageView = itemView!!.findViewById(R.id.idUserImage)
         val tvUserName: TextView = itemView!!.findViewById(R.id.idUserName)
         val tvUserType: TextView = itemView!!.findViewById(R.id.idUserType)
+    }
+
+    fun addAll(_userDataList: MutableList<UserData>) {
+        userDataList.addAll(_userDataList)
+        notifyDataSetChanged()
+    }
+
+    fun clear() {
+        userDataList.clear()
+        notifyDataSetChanged()
     }
 }

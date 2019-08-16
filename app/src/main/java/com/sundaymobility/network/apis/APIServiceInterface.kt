@@ -7,5 +7,5 @@ import rx.Observable
 
 interface APIServiceInterface {
     @GET(Constants.BASE_URL + "users")
-    fun getAllUserData(): Observable<UserData>
+    fun getAllUserData(): Observable<MutableList<UserData>>
 }
