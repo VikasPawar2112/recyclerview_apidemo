@@ -20,7 +20,7 @@ class UserDataActivity : AppCompatActivity(), UserDataView {
         recyclerview.layoutManager = LinearLayoutManager(this)
         userdataAdapter = UserDataAdapter(this, userDataList)
         recyclerview.adapter = userdataAdapter
-        presenters?.getUserData()
+//        presenters?.getUserData()
     }
 
     override fun onDestroy() {
