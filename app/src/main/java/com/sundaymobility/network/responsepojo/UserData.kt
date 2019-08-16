@@ -1,9 +1,11 @@
 package com.sundaymobility.network.responsepojo
 
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class UserData {
+class UserData() : Parcelable {
 
     @SerializedName("login")
     @Expose
@@ -59,6 +61,62 @@ class UserData {
     @SerializedName("site_admin")
     @Expose
     var siteAdmin: Boolean? = null
+
+    constructor(parcel: Parcel) : this() {
+        login = parcel.readString()
+        id = parcel.readValue(Int::class.java.classLoader) as? Int
+        nodeId = parcel.readString()
+        avatarUrl = parcel.readString()
+        gravatarId = parcel.readString()
+        url = parcel.readString()
+        htmlUrl = parcel.readString()
+        followersUrl = parcel.readString()
+        followingUrl = parcel.readString()
+        gistsUrl = parcel.readString()
+        starredUrl = parcel.readString()
+        subscriptionsUrl = parcel.readString()
+        organizationsUrl = parcel.readString()
+        reposUrl = parcel.readString()
+        eventsUrl = parcel.readString()
+        receivedEventsUrl = parcel.readString()
+        type = parcel.readString()
+        siteAdmin = parcel.readValue(Boolean::class.java.classLoader) as? Boolean
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(login)
+        parcel.writeValue(id)
+        parcel.writeString(nodeId)
+        parcel.writeString(avatarUrl)
+        parcel.writeString(gravatarId)
+        parcel.writeString(url)
+        parcel.writeString(htmlUrl)
+        parcel.writeString(followersUrl)
+        parcel.writeString(followingUrl)
+        parcel.writeString(gistsUrl)
+        parcel.writeString(starredUrl)
+        parcel.writeString(subscriptionsUrl)
+        parcel.writeString(organizationsUrl)
+        parcel.writeString(reposUrl)
+        parcel.writeString(eventsUrl)
+        parcel.writeString(receivedEventsUrl)
+        parcel.writeString(type)
+        parcel.writeValue(siteAdmin)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<UserData> {
+        override fun createFromParcel(parcel: Parcel): UserData {
+            return UserData(parcel)
+        }
+
+        override fun newArray(size: Int): Array<UserData?> {
+            return arrayOfNulls(size)
+        }
+    }
 
 }
 

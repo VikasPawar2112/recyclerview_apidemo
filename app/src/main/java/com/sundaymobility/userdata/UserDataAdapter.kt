@@ -12,7 +12,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.sundaymobility.R
 import com.sundaymobility.network.responsepojo.UserData
 
-class UserDataAdapter(val context: Context, private var userDataList: MutableList<UserData>) :
+class UserDataAdapter(val context: Context, private var userDataList: MutableList<UserData>, var onClickImage: IUserDataAdapter) :
     RecyclerView.Adapter<UserDataAdapter.UserDataViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserDataViewHolder {
@@ -30,6 +30,10 @@ class UserDataAdapter(val context: Context, private var userDataList: MutableLis
             .into(holder.imgUserImage)
         holder.tvUserName.text = userDataBean.login
         holder.tvUserType.text = userDataBean.type
+
+        holder.imgUserImage.setOnClickListener {
+            onClickImage.onImageClickListener(userDataBean)
+        }
     }
 
     class UserDataViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
@@ -47,4 +51,9 @@ class UserDataAdapter(val context: Context, private var userDataList: MutableLis
         userDataList.clear()
         notifyDataSetChanged()
     }
+
+    interface IUserDataAdapter {
+        fun onImageClickListener(userDataBean: UserData)
+    }
 }
+

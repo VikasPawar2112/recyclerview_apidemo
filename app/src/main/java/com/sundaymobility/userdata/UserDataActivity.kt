@@ -1,16 +1,18 @@
 package com.sundaymobility.userdata
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.widget.Toast
+import com.sundaymobility.FullScreenView
 import com.sundaymobility.R
 import com.sundaymobility.network.responsepojo.UserData
 import kotlinx.android.synthetic.main.activity_user_data.*
 
-class UserDataActivity : AppCompatActivity(), UserDataView {
+class UserDataActivity : AppCompatActivity(), UserDataView, UserDataAdapter.IUserDataAdapter {
 
     private var userdataAdapter: UserDataAdapter? = null
     var presenters: UserDataPresenter? = null
@@ -21,7 +23,7 @@ class UserDataActivity : AppCompatActivity(), UserDataView {
         supportActionBar!!.setTitle(R.string.toolbar_name_home)
         presenters = UserDataPresenterImpl(this)
         recyclerview.layoutManager = LinearLayoutManager(this)
-        userdataAdapter = UserDataAdapter(this, mutableListOf())
+        userdataAdapter = UserDataAdapter(this, mutableListOf(), this)
         recyclerview.adapter = userdataAdapter
         presenters?.getUserData()
         addAction.setOnClickListener { view ->
@@ -55,5 +57,13 @@ class UserDataActivity : AppCompatActivity(), UserDataView {
     override fun loadUserData(userDataList: MutableList<UserData>) {
         userdataAdapter?.clear()
         userdataAdapter?.addAll(userDataList)
+    }
+
+    override fun onImageClickListener(userDataBean: UserData) {
+        val intent = Intent(this, FullScreenView::class.java)
+        val bundle = Bundle()
+        bundle.putParcelable("userData", userDataBean)
+        intent.putExtras(bundle)
+        startActivity(intent)
     }
 }
