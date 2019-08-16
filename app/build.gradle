@@ -33,10 +33,14 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     // RECYCLERVIEW
     implementation 'com.android.support:recyclerview-v7:28.0.0'
+    // RX-ANDROID
     implementation 'io.reactivex:rxandroid:1.2.1'
+    //RETROFIT ...  NETWORK LIBRARY
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    // RETROFIT ... CONVERTER & ADAPTER
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava:2.4.0'
+    // OKHTTP ... LOGS HTTP REQUEST RESPONSE DATA.
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     // GLIDE IMAGE ... IMAGE LOADING AND CACHING LIBRARY
     implementation 'com.github.bumptech.glide:glide:4.9.0'

@@ -2,6 +2,7 @@ package com.sundaymobility
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.sundaymobility.network.responsepojo.UserData
@@ -20,6 +21,7 @@ class FullScreenView : AppCompatActivity() {
                 .apply(RequestOptions().centerCrop())
                 .into(fullScreenView)
         } else {
+            Toast.makeText(this, R.string.some_went_wrong, Toast.LENGTH_LONG).show()
             finish()
         }
     }

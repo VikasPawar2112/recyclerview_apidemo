@@ -6,5 +6,6 @@
     <string name="snackbar_action">OK</string>
     <string name="toolbar_name_home">User Data</string>
     <string name="no_internet_connection">No Internet connection</string>
+    <string name="some_went_wrong">Something went wrong.</string>
 
 </resources>
