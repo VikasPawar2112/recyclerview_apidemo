@@ -8,6 +8,6 @@ After clicking on image second screen will display large image view (with zoom o
 On second screen there should be option for delete row
 
 Show the following 
-Image
-User name
+Image,
+User name,
 User Type
